@@ -5,24 +5,26 @@ const Counter: Component = () => {
 
   const counterClassName = createMemo(() => {
     if (count() > 0) {
-      return "success";
+      return "counter success";
     }
 
     if (count() < 0) {
-      return "failure";
+      return "counter failure";
     }
+
+    return "counter";
   });
 
   return (
-    <div id="app">
+    <div class="app">
       <div class="content">
-        <button onClick={() => setCount((prev) => prev - 1)}>-</button>
+        <button class="button" onClick={() => setCount((prev) => prev - 1)}>-</button>
         <div class={counterClassName()} id="counter">
           {count()}
         </div>
-        <button onClick={() => setCount((prev) => prev + 1)}>+</button>
+        <button class="button" onClick={() => setCount((prev) => prev + 1)}>+</button>
       </div>
-      <button onClick={() => setCount(0)}>Reset</button>
+      <button class="button" onClick={() => setCount(0)}>Reset</button>
     </div>
   );
 };
